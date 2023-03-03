@@ -42,7 +42,6 @@ const SongSchema  = mongoose.Schema({
             'Rock music',
             'Soul music'
         ]
-    
    },
    createdDate: {
     type: Date,
