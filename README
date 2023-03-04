@@ -1,4 +1,40 @@
 # Addis_Song
 > Addis song is built with MERN to show basic skills, and the app manage information for songs. The  app  has features able to create, list, update and remove songs.
 
+## Built With
 
+- NodeJS
+- ExpressJS
+- MongoDB =>(Mongoose)
+- ReactJS
+- Redux Toolkit, Redux Saga
+- Emotion
+
+
+
+## Authors
+
+👤 **Worash**
+
+- GitHub: [@Worashf](https://github.com/worashf)
+- Twitter: [@WorashAboche](https://twitter.com/WorashAboche)
+- LinkedIn: [Worash Abocherugn](https://www.linkedin.com/in/worash-abocherugn-a02219154/)
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome!
+
+Feel free to check the [issues page](../../issues/).
+
+## Show your support
+
+Give a ⭐️ if you like this project!
+
+## Acknowledgments
+
+- Hat tip to anyone whose code was used
+- Inspiration
+
+## 📝 License
+
+This project is [MIT](./MIT.md) licensed.
