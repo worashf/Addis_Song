@@ -4,15 +4,16 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import  { useDispatch} from  "react-redux"
 import { ToastContainer} from 'react-toastify';
 import SongList from "./pages/SongList";
-
+import  EditSongPage  from "./pages/EditSongPage"
 import SongFormPage from "./pages/SongFormPage";
-import {GET_SONGS}  from "./redux/constants/actionType"
+import {GET_SONGS,GET_SONG_STATS}  from "./redux/constants/actionType"
 function App() {
 
   const dispatch  =  useDispatch()
 
   useEffect(()=>{
     dispatch({type:GET_SONGS})
+    // dispatch({type:GET_SONG_STATS})
   },[dispatch])
 
   return (
@@ -22,7 +23,7 @@ function App() {
         <Routes>
           <Route path="/" element={<SongList/> } />
           <Route path="/add-song" element={<SongFormPage/> } />
-          <Route path="/h4" element={<h3>  Home  3</h3>} />
+          <Route path="/song/:id" element={<EditSongPage/>} />
         </Routes>
       </Router>
     

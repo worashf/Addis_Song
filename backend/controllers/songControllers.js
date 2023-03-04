@@ -36,7 +36,7 @@ exports.getAllSongs = catchAsyncError(async (req, res, next) => {
 
 exports.editSong = catchAsyncError(async (req, res, next) => {
        const {title, artist, album, genre } = req.body
-    const song = await Song.findOne({ _id: req.params.songId });
+    let song = await Song.findOne({ _id: req.params.songId });
     if (!song) {
         return  next(new ErrorHandler(`No song found with song id: ${req.params.songId}`,404))
     }
@@ -80,7 +80,7 @@ exports.songsCount = catchAsyncError(async (req, res, next) => {
             _id: null,
             songsCount: {$sum: 1}
         },
-    }])
+    }]).exec()
 
     if (!totalSongs) {
         return  next (new ErrorHandler("No songs found yet", 404))
@@ -104,7 +104,7 @@ exports.artistsCount = catchAsyncError(async (req, res, next) => {
         $project: {
             uniqueartistsCount:{$size:"$uniqueArtists"}
         }
-    }])
+    }]).exec()
     if (!totalArtistsCount) {
         return  next (new ErrorHandler("No artists found yet", 404))
     }
@@ -127,14 +127,14 @@ exports.albumsCount = catchAsyncError(async (req, res, next) => {
         $project: {
             uniqueAlbumCount:{$size:"$uniqueAlbums"}
         }
-    }])
+    }]).exec()
     if (!totalAlbumssCount) {
         return  next (new ErrorHandler("No albums found yet", 404))
     }
 
     res.status(200).json({
         success: true,
-        totalAlbumssCount
+        totalAlbumsCount
     })
 
 })
@@ -151,7 +151,7 @@ exports.genresCount = catchAsyncError(async (req, res, next) => {
         $project: {
             uniqueGenresCount:{$size:"$uniqueGenres"}
         }
-    }])
+    }]).exec()
     if (!totalGenresCount) {
         return  next (new ErrorHandler("No genres found yet", 404))
     }
@@ -234,4 +234,3 @@ exports.songsCountByAlbum = catchAsyncError(async (req, res, next) => {
     })
 
 })
-

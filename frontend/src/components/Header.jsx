@@ -41,7 +41,6 @@ const MenuLink = styled(Link)`
     &:hover {
         color: #117964;
  } 
-  
 `
 
 
@@ -51,7 +50,7 @@ const Header = () => {
             <NavContainer>
                 <MenuContainer>
                     <MenuItem> <MenuLink to="/add-song" > Add  songs</MenuLink> </MenuItem>
-                    <MenuItem> <MenuLink to="/add-song" > Manage songs</MenuLink></MenuItem>
+    
                     <MenuItem> <MenuLink to="/" > Manage songs</MenuLink> </MenuItem>
                 </MenuContainer>
                 <Logo> Addis Songs </Logo>
