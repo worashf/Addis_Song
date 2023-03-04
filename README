@@ -10,6 +10,13 @@
 - Redux Toolkit, Redux Saga
 - Emotion
 
+### Setup
+
+- Download or clone the repository
+- Open the folder in your IDE
+- Install the dependencies =>"npm install"  in root folder 
+- Run "npm run start" to run the backend
+- Under frontend folder run  "npm start" to run the front end
 
 
 ## Authors
