@@ -3,10 +3,9 @@ import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
 const Nav = styled.header`
 box-shadow: 0px 5px 10px 0px #aaa;
-position: fixed;
 width: 100%;
 background-color : #fff;
-color: #000;
+color: #a85400;
 opacity: 0.9;
 z-index: 100;
 
@@ -51,8 +50,8 @@ const Header = () => {
         <Nav >
             <NavContainer>
                 <MenuContainer>
-                    <MenuItem> <MenuLink to="/" > Add  songs</MenuLink> </MenuItem>
-                    <MenuItem> <MenuLink to="/" > Manage songs</MenuLink></MenuItem>
+                    <MenuItem> <MenuLink to="/add-song" > Add  songs</MenuLink> </MenuItem>
+                    <MenuItem> <MenuLink to="/add-song" > Manage songs</MenuLink></MenuItem>
                     <MenuItem> <MenuLink to="/" > Manage songs</MenuLink> </MenuItem>
                 </MenuContainer>
                 <Logo> Addis Songs </Logo>
