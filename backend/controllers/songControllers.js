@@ -100,11 +100,12 @@ exports.artistsCount = catchAsyncError(async (req, res, next) => {
             _id: null,
             uniqueArtists : { $addToSet: '$artist.first_name'}
             
-        },
+        }},
+         {
         $project: {
             uniqueartistsCount:{$size:"$uniqueArtists"}
-        }
-    }]).exec()
+        }}
+]).exec()
     if (!totalArtistsCount) {
         return  next (new ErrorHandler("No artists found yet", 404))
     }
@@ -118,17 +119,17 @@ exports.artistsCount = catchAsyncError(async (req, res, next) => {
 
 // Total  stats like, num of albums,  => /api/v1/albums/total
 exports.albumsCount = catchAsyncError(async (req, res, next) => {
-    const totalAlbumssCount = await Song.aggregate([{
+    const totalAlbumsCount = await Song.aggregate([{
         $group: {
             _id: null,
             uniqueAlbums : { $addToSet: '$album.album_name'}
             
-        },
+        }},{
         $project: {
             uniqueAlbumCount:{$size:"$uniqueAlbums"}
         }
     }]).exec()
-    if (!totalAlbumssCount) {
+    if (!totalAlbumsCount) {
         return  next (new ErrorHandler("No albums found yet", 404))
     }
 
@@ -147,7 +148,7 @@ exports.genresCount = catchAsyncError(async (req, res, next) => {
             _id: null,
             uniqueGenres : { $addToSet: '$genre'}
             
-        },
+        }},{
         $project: {
             uniqueGenresCount:{$size:"$uniqueGenres"}
         }
@@ -192,7 +193,7 @@ exports.countByArtist = catchAsyncError(async (req, res, next) => {
             countByArtist: { $sum: 1 },
             uniqueAlbum: { $addToSet: "$album.album_name" },
             uniqueGenre:{$addToSet: "$genre"}
-        },
+        }}, {
         $project: {
             _id: 1, 
             countByArtist: 1,
@@ -218,7 +219,7 @@ exports.songsCountByAlbum = catchAsyncError(async (req, res, next) => {
         $group: {
             _id: "$album.album_name",
             countByAlbum: { $sum: 1 },
-        },
+        }}, {
         $project: {
             _id: 1, 
             countByAlbum: 1,   

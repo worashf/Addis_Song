@@ -7,7 +7,7 @@ import  axiosInstance from  "../utils/axiosInstance"
 
 export const  createSongApi  = async(song) => axiosInstance.post(`/songs`, song)
 
-export const  getAllSongsApi  = async() => axiosInstance.get(`$/songs`)
+export const  getAllSongsApi  = async() => axiosInstance.get(`/songs`)
 
 export const deleteSongApi  = async(id) =>  axiosInstance.delete(`/songs/${id}`)
 

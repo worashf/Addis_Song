@@ -66,16 +66,16 @@ function* getAllSongSaga() {
 function * getSongsStatSaga() {
     try {
         const res1= yield call(getAllSongsCountApi)
-        // const  res2 = yield call(getGenresCountApi)
+        const  res2 = yield call(getGenresCountApi)
         const res3= yield call(getAlubmsCountApi)
         const  res4 = yield call(getArtistsCountApi)
         const res5= yield call( getCountByArtistApi)
         const  res6 = yield call(getSongsByGenreApi)
         let   stats  ={
-             songCount:  res1.data.totalSongs,
-            //  genreCount:  res2.data.totalGenresCount,
-             albumCount: res3.data.totalAlbumsCount,
-             artistCount : res4.data.totalArtistsCount,
+             songCount:  res1.data.totalSongs[0].songsCount,
+             genreCount:  res2.data.totalGenresCount[0].uniqueGenresCount,
+             albumCount: res3.data.totalAlbumsCount[0].uniqueAlbumCount,
+             artistCount : res4.data.totalArtistsCount[0].uniqueartistsCount,
              songCountByGenre:  res6.data.songsCount,
              songCountByArtist: res5.data.songsCount
 

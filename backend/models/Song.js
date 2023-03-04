@@ -28,16 +28,16 @@ const SongSchema  = mongoose.Schema({
    },
    genre:{
     type: String,
-    // enum:[
-    //         'Tezeta',
-    //         'Bati',
-    //         'Ambassel',
-    //         'Anchihoy',
-    //         'Jazz',
-    //         'Hip hop',
-    //         'Rock music',
-    //         'Soul music'
-    //     ]
+    enum:[
+            'Tezeta',
+            'Bati',
+            'Ambassel',
+            'Anchihoy',
+            'Jazz',
+            'Hip hop',
+            'Rock music',
+            'Soul music'
+        ]
    },
    createdDate: {
     type: Date,

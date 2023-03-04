@@ -13,7 +13,7 @@ function App() {
 
   useEffect(()=>{
     dispatch({type:GET_SONGS})
-    // dispatch({type:GET_SONG_STATS})
+    dispatch({type:GET_SONG_STATS})
   },[dispatch])
 
   return (
