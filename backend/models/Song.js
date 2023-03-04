@@ -23,12 +23,8 @@ const SongSchema  = mongoose.Schema({
         type:String,
         trim: true,
         required: [true,'Album name can not e blank, Please enter album  name']
-    },
-    numOfSongs:{
-        type: Number, 
-        required: [true, 'Please enter number of songs in the album'],
-        maxLength: [15, 'Number of songs  can not be exceed 15'],
     }
+
    },
    genre:{
     type: String,
