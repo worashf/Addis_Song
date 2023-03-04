@@ -6,9 +6,9 @@ import {AiFillDelete, AiFillEdit}  from "react-icons/ai"
 
 
 import  {DELETE_SONG} from "../redux/constants/actionType"
-import { useDispatch, useSelector} from "react-redux";
+import { useDispatch,} from "react-redux";
 import { toast } from 'react-toastify'
-import { clearError,setError, removeSong}  from "../redux/slice/songSlice";
+
 const Table  = styled.table`
 border: 1px solid #ccc;
 border-collapse: collapse;
