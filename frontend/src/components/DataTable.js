@@ -1,6 +1,7 @@
 import React from "react"
 import styled from '@emotion/styled';
 
+
 const Table  = styled.table`
 border: 1px solid #ccc;
 border-collapse: collapse;
@@ -15,7 +16,7 @@ const Tr  = styled.tr`
 `
 
 const Th  = styled.th`
-background: #3498db; 
+background: #a85400;
 color: white; 
 font-weight: bold; 
 padding: 10px; 
@@ -30,24 +31,33 @@ text-align: left;
 font-size: 18px;
 `
 
-const DataTable =() =>{
+const DataTable =({songs}) =>{
 
     return (
         <Table>
             <thead>
                 <Tr>
-                <Th> Anene</Th>
-                <Th> Anene</Th>
-                <Th> Anene</Th>
+                <Th> Song Title</Th>
+                <Th> Artist</Th>
+                <Th> Allbum</Th>
+                <Th> Genre</Th>
 
                 </Tr>
             </thead>
             <tbody>
-                <Tr>
-                    <Td> anenemnme md,mfd,m</Td>
-                    <Td> anenemnme md,mfd,m</Td>
-                    <Td> anenemnme md,mfd,m</Td>
-                </Tr>
+                {
+                  songs ?  (songs.map(song =>(
+                        <Tr key = {song._id}>
+                        <Td> {song.title}</Td>
+                        <Td> {song.artist.first_name}</Td>
+                        <Td> {song.album.album_name}</Td>
+                        <Td> {song.genre}</Td>
+                    </Tr>
+                    ))) : (
+                        <h4 style={{color:"#a85400"}}> No Data found</h4>
+                    )
+                }
+             
 
 
             </tbody>
