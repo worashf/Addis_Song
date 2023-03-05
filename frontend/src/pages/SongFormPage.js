@@ -7,7 +7,7 @@ flex-direction: column;
 `
 const Body = styled.div`
  color : #111;
- margin: 100px  auto;
+ margin: 10px  auto;
 `
 const SongList = () => {
 
@@ -15,10 +15,7 @@ const SongList = () => {
         <Container >
             <Header />
             <Body>
-              
                 <SongForm />
-
-
             </Body>
         </Container>
     )

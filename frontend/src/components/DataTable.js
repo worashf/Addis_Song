@@ -5,7 +5,7 @@ import {AiFillDelete, AiFillEdit}  from "react-icons/ai"
 
 
 
-import  {DELETE_SONG} from "../redux/constants/actionType"
+import  {DELETE_SONG, GET_SONG_STATS} from "../redux/constants/actionType"
 import { useDispatch, useSelector} from "react-redux";
 import { toast } from 'react-toastify'
 import { clearError,setError, removeSong}  from "../redux/slice/songSlice";
@@ -57,6 +57,7 @@ const DataTable =({songs}) =>{
 
     const handleDelete =(id) =>{
       dispatch({type:DELETE_SONG, id})
+      dispatch({ type: GET_SONG_STATS })
       toast.success("Song deleted sucessfuly")
    
     }

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 import styled from '@emotion/styled';
 import { useParams, useNavigate } from "react-router-dom"
-import { UPDATE_SONG } from "../redux/constants/actionType"
+import { UPDATE_SONG,GET_SONG_STATS } from "../redux/constants/actionType"
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from 'react-toastify'
 import { clearError, editSong } from "../redux/slice/songSlice";
@@ -133,6 +133,7 @@ const SongForm = () => {
             genre
         }
         dispatch({ type: UPDATE_SONG, newSong })
+        dispatch({ type: GET_SONG_STATS })
         navigate("/")
 
     }
