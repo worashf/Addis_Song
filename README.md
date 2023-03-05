@@ -2,7 +2,8 @@
 > Addis song is built with MERN to show basic skills, and the app manage information for songs. The  app  has features able to create, list, update and remove songs.
 
 ## Live Demo
-   [Addis Song](https://bright-toffee-a924ef.netlify.app/)
+   [Addis Song](https://enchanting-dragon-aecfac.netlify.app//)
+  ### Backend deployed at render, and the link is https://addismus.onrender.com
 
 ## Built With
 
