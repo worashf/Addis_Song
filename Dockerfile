@@ -8,6 +8,9 @@ COPY package*.json ./
  
  # install fils 
  RUN npm install
+ 
+ # copy files to working dir
+ COPY . .
 
 # Expose API port
 
