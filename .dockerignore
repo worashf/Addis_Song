@@ -3,4 +3,6 @@ npm-debug.log
 build
 .vscode
 frontend
+.Dockerfile
+.dockerignore
 README
