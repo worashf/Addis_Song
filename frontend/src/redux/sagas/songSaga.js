@@ -1,4 +1,4 @@
-import { call, put, takeEvery } from 'redux-saga/effects'
+import { call, put, takeEvery,all } from 'redux-saga/effects'
 import { CREATE_SONG, DELETE_SONG, UPDATE_SONG, GET_SONGS, GET_SONG_STATS } from "../constants/actionType"
 import { createSongApi, deleteSongApi, updateSongApi, getAllSongsApi,
    getAllSongsCountApi,getAlubmsCountApi,getArtistsCountApi,getGenresCountApi,
@@ -65,12 +65,16 @@ function* getAllSongSaga() {
 
 function * getSongsStatSaga() {
     try {
-        const res1= yield call(getAllSongsCountApi)
-        const  res2 = yield call(getGenresCountApi)
-        const res3= yield call(getAlubmsCountApi)
-        const  res4 = yield call(getArtistsCountApi)
-        const res5= yield call( getCountByArtistApi)
-        const  res6 = yield call(getSongsByGenreApi)
+        const [res1,res2,res3,res4,res5,res6]  = yield all ([
+           call( getAllSongsCountApi),call(getGenresCountApi), call( getAlubmsCountApi), call(getArtistsCountApi)
+           , call( getCountByArtistApi), call(getSongsByGenreApi)
+        ])
+        // const res1= yield call(getAllSongsCountApi)
+        // const  res2 = yield call(getGenresCountApi)
+        // const res3= yield call(getAlubmsCountApi)
+        // const  res4 = yield call(getArtistsCountApi)
+        // const res5= yield call( getCountByArtistApi)
+        // const  res6 = yield call(getSongsByGenreApi)
         let   stats  ={
              songCount:  res1.data.totalSongs[0].songsCount,
              genreCount:  res2.data.totalGenresCount[0].uniqueGenresCount,
